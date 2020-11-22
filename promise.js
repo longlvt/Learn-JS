@@ -26,7 +26,7 @@ const addtoCalendar = meetingDetails => {
 }
 
 meeting
-    .then(addtoCalendar) // this will return a string
+    .then(addtoCalendar) // this will get the resolved data of 'meeting', and pass to 'addtoCalendar'
     .then(res => { // the 'res' will be whatever being resolved from 'addtoCalendar'
         // the data of result will be passing here
         console.log('Meeting scheduled:', res)
