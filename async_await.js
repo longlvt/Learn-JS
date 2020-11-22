@@ -27,7 +27,10 @@ const addtoCalendar = meetingDetails => {
 
 async function myMeeting() {
     try {
+        // waiting for 'meeting' to be resolved, then assign resolved data to 'meetingDetails'
         const meetingDetails = await meeting
+
+        // waiting for 'addtoCalendar' to be resolved, then assign resolved data to 'message'
         const message = await addtoCalendar(meetingDetails)
         console.log(message)
     } catch(err) {
