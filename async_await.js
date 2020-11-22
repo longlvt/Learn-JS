@@ -1,4 +1,4 @@
-const isMeeting = true
+const isMeeting = false
 const meeting = new Promise((resolve, reject) => {
     // Do your stuff
     if (!isMeeting) {
@@ -7,7 +7,10 @@ const meeting = new Promise((resolve, reject) => {
             location: 'Skype',
             time: '1.00 PM'
         }
-        resolve(meetingDetails)
+        setTimeout(() => {
+            console.log('We have the data for meeting')
+            resolve(meetingDetails)
+        }, 2000)
     } else {
         reject(new Error('Meeting already scheduled'))
     }
@@ -33,6 +36,7 @@ async function myMeeting() {
         // waiting for 'addtoCalendar' to be resolved, then assign resolved data to 'message'
         const message = await addtoCalendar(meetingDetails)
         console.log(message)
+        console.log('FINALLY OUT') // This will be logging out if all of the above are done.
     } catch(err) {
         console.log(err.message)
     }

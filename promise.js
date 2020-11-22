@@ -35,3 +35,30 @@ meeting
         // the data of reject will be passing here
         console.log(err.message)
 })
+
+
+
+console.log('OTHER SAMPLE START')
+
+function loginUser(email, password) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('We have the data')
+            resolve({ userEmail: email})
+        }, 2000)
+    })
+}
+
+function getVideos(email) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('We have the videos')
+            resolve(['videos1', 'videos2', 'videos3'])
+        }, 2000)
+    })
+}
+
+loginUser('abc@gmail.com', 123456)
+    .then(user => getVideos(user.userEmail))
+
+console.log('OTHER SAMPLE Finished')
